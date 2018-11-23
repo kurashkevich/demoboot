@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List of posts</title>
+</head>
+<body>
+<a href="/">back</a>
+
+<article th:each="post : ${posts}">
+    <h1 th:text="${post.header}">Some headers</h1>
+    <p th:text="${post.body}">some body</p>
+    <h3 th:text="${post.author}">some author</h3>
+</article>
+
+</body>
+</html>
