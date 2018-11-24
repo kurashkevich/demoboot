@@ -32,7 +32,6 @@ public class PostController {
 
     @RequestMapping("/get/{slug}")
     public String getPost(@PathVariable(value = "slug") String slug) throws Exception {
-        System.out.println(slug);
         Post post = null;
         if(post == null) {
             throw new Exception(("sorry, we couldn't find any post with name: " + slug));
@@ -40,10 +39,11 @@ public class PostController {
         return "welcome";
     }
 
-    @ExceptionHandler(Exception.class)
+
+    // Обработка индивидуального случая, для глобальной обработки ошибок, смотри ExceptionControllerAdvice
+   /* @ExceptionHandler(Exception.class)
     public String myExceptionHandler(HttpServletRequest httpServletRequest, Exception exc, Model model){
-        System.out.println("halo");
         model.addAttribute("errorMsg", exc.getMessage());
         return "views/error/error";
-    }
+    }*/
 }
