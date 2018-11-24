@@ -18,6 +18,7 @@ public class Author {
     private Long id;
     private String firstName;
     private String lastName;
+    private String email;
 
     // we have one author, which can have a lot of posts
     @OneToMany(mappedBy = "author") // tells who is the owner of this relationship
@@ -30,6 +31,12 @@ public class Author {
     public Author(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public Author(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
     }
 
     @Override

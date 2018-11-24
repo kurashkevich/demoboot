@@ -1,11 +1,9 @@
 package com.example.h2demo.domain;
 
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Data
@@ -15,7 +13,16 @@ public class Post {
     @GeneratedValue
     private Long id;
     private String title;
+
+    @Column(columnDefinition = "TEXT")
     private String body;
+
+    @Column(columnDefinition = "TEXT")
+    private String teaser;
+
+    private String slug;
+
+    @CreatedDate @Column(columnDefinition = "TIMESTAMP")
     private Date postedOn;
 
     // we have many posts which belongs to one author
@@ -29,6 +36,13 @@ public class Post {
 
     public Post(String title) {
         this.title = title;
+    }
+
+    public Post(String title, String body, Date postedOn, Author author) {
+        this.title = title;
+        this.body = body;
+        this.postedOn = postedOn;
+        this.author = author;
     }
 
     @Override
