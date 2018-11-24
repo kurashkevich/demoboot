@@ -15,6 +15,7 @@
 		<module>mrShopper</module>
 		<module>mrShopperREST</module>
 		<module>Thymeleaf</module>
+		<module>h2demo</module>
 	</modules>
 
 	<parent>
