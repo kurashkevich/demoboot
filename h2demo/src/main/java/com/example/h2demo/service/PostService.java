@@ -5,6 +5,8 @@ import com.example.h2demo.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostService {
 
@@ -17,6 +19,10 @@ public class PostService {
 
     public Post getLatestPost(){
         return postRepository.findFirstByOrderByPostedOnDesc();
+    }
+
+    public List<Post> getPostsByAuthorFirstName(String firstName){
+        return postRepository.findAllByAuthorFirstName(firstName);
     }
 
 
