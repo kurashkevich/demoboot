@@ -1,10 +1,13 @@
 package com.example.h2demo.domain;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import lombok.Data;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -24,6 +27,11 @@ public class Post {
 
     @CreatedDate @Column(columnDefinition = "TIMESTAMP")
     private Date postedOn;
+
+    @ElementCollection
+    private List<String> keywords;
+
+    private Boolean active;
 
     // we have many posts which belongs to one author
     @ManyToOne
