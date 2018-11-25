@@ -14,15 +14,15 @@ SET @BODY = '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu
 insert into author(id,first_name,last_name,email) values (1,'Dan','Vega','danvega@gmail.com');
 insert into author(id,first_name,last_name,email) values (2,'John','Smith','johnsmith@gmail.com');
 
-insert into Post(id,title,slug,teaser,body,author_id,posted_on) values (1,'Spring Boot Rocks!','spring-boot-rocks',@TEASER,@BODY,1,CURRENT_TIMESTAMP);
+insert into Post(id,title,slug,teaser,body,author_id,posted_on, active) values (1,'Spring Boot Rocks!','spring-boot-rocks',@TEASER,@BODY,1,CURRENT_TIMESTAMP,true );
 insert into Post(id,title,slug,teaser,body,author_id,posted_on) values (2,'Spring Data Rocks!','spring-data-rocks',@TEASER,@BODY,1,CURRENT_TIMESTAMP);
 insert into Post(id,title,slug,teaser,body,author_id,posted_on) values (3,'John Blog Post 1','john-blog-post-1',@TEASER,@BODY,2,CURRENT_TIMESTAMP);
-insert into Post(id,title,slug,teaser,body,author_id,posted_on) values (4,'John Blog Post 2','john-blog-post-2',@TEASER,@BODY,2,CURRENT_TIMESTAMP);
+insert into Post(id,title,slug,teaser,body,author_id,posted_on, active) values (4,'John Blog Post 2','john-blog-post-2',@TEASER,@BODY,2,CURRENT_TIMESTAMP, true);
 insert into Post(id,title,slug,teaser,body,author_id,posted_on) values (5,'John Blog Post 3','john-blog-post-3',@TEASER,@BODY,2,CURRENT_TIMESTAMP);
 insert into Post(id,title,slug,teaser,body,author_id,posted_on) values (6,'Refactoring our Spring Data Project','refactoring-spring-data-project',@TEASER,@BODY,1,CURRENT_TIMESTAMP);
 
 insert into POST_KEYWORDS values (1, 'spring');
-insert into POST_KEYWORDS values (1, 'js');
+insert into POST_KEYWORDS values (1, 'spring');
 insert into POST_KEYWORDS values (1, 'java');
 insert into POST_KEYWORDS values (1, 'c++');
 

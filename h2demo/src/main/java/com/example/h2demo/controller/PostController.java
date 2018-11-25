@@ -36,6 +36,20 @@ public class PostController {
         return "post/posts";
     }
 
+    @RequestMapping("/active")
+    public String getActivePosts(Model model){
+        model.addAttribute("posts", postService.getActivePosts());
+        return "post/posts";
+    }
+
+
+    @RequestMapping("/{firstName}/{keyword}")
+    public String getPostsByAuthorFirstNAmeAndKeywords(@PathVariable(value = "firstName") String firstName,
+                                                       @PathVariable(value = "keyword")String keyword, Model model){
+        model.addAttribute("posts", postService.getPostsByAuthorFirstNameAndKeywords(firstName, keyword));
+        return "post/posts";
+    }
+
 
 
 

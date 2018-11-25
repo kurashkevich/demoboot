@@ -34,6 +34,14 @@ public class PostService {
         return postRepository.findAllByKeywordsLikeIgnoreCase('%' + keyword + '%');
     }
 
+    public List<Post> getActivePosts(){
+        return postRepository.findAllByActiveTrue();
+    }
+
+    public List<Post> getPostsByAuthorFirstNameAndKeywords(String firstName, String keyword){
+        return postRepository.findAllByAuthorFirstNameIgnoreCaseAndKeywordsIgnoreCase(firstName, keyword);
+    }
+
 
 
 
