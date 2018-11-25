@@ -24,6 +24,19 @@ public class PostController {
         return "post/posts";
     }
 
+    @RequestMapping("/byKey/{keyword}")
+    public String getByKey(@PathVariable(value = "keyword")String keyword, Model model){
+        model.addAttribute("posts", postService.getPostsByKeyword(keyword));
+        return "post/posts";
+    }
+
+    @RequestMapping("/byKeyLike/{keywordLike}")
+    public String getByKeyLike(@PathVariable(value = "keywordLike")String keywordLike, Model model){
+        model.addAttribute("posts", postService.getPostsByKeywordLike(keywordLike));
+        return "post/posts";
+    }
+
+
 
 
 

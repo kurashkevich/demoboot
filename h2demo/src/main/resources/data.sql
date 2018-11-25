@@ -30,4 +30,4 @@ insert into POST_KEYWORDS values (1, 'c++');
 insert into POST_KEYWORDS values (2, 'toyota');
 insert into POST_KEYWORDS values (2, 'mazda');
 insert into POST_KEYWORDS values (3, 'seat');
-insert into POST_KEYWORDS values (4, 'volvo');
+insert into POST_KEYWORDS values (4, 'spring data' );
