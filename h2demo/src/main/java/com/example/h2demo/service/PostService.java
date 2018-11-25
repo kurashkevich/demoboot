@@ -42,6 +42,14 @@ public class PostService {
         return postRepository.findAllByAuthorFirstNameIgnoreCaseAndKeywordsIgnoreCase(firstName, keyword);
     }
 
+    public Post getBySlug(String slug){
+        return postRepository.findPostBySlugNamedParam(slug);
+    }
+
+    public Post getBySlugClassic(String slug){
+        return postRepository.findPostBySlugIgnoreCase(slug);
+    }
+
 
 
 

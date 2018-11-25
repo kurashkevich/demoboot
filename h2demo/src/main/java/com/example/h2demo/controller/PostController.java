@@ -50,6 +50,12 @@ public class PostController {
         return "post/posts";
     }
 
+    @RequestMapping("/slug/{slug}")
+    public String findPostBySlug(@PathVariable(value = "slug")String slug, Model model){
+        model.addAttribute("post", postService.getBySlugClassic(slug));
+        return "post/single";
+    }
+
 
 
 
