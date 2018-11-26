@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>h2 demo</title>
+</head>
+<body>
+
+    <a href="/console" target="_blank">to database</a>
+
+<h1 th:text="${post.title}"></h1>
+<p th:text="${post.body}"></p>
+<h3 th:text="${post.author.lastName}"></h3>
+<h4 th:text="${#calendars.format(post.postedOn, 'MM/dd/YYYY')}"></h4>
+</body>
+</html>
