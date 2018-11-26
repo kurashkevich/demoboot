@@ -12,16 +12,19 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
+    /**
+     * AuthenticationManagerBuilder - helps o create in-memory users
+     * **/
     @Autowired
     public void configureAuth(AuthenticationManagerBuilder auth) throws Exception{
         auth
             .inMemoryAuthentication()
             .withUser("dan")
-            .password("{noop}password")
+            .password("{noop}pass")
             .roles("ADMIN")
             .and()
             .withUser("joe")
-            .password("{noop}password")
+            .password("{noop}pass")
             .roles("USER");
     }
 
