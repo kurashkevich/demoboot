@@ -5,6 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * default name - user
+ *
+ * https://docs.spring.io/spring-security/site/docs/current/guides/html5/form-javaconfig.html
+ *
  * **/
 @SpringBootApplication
 public class DemoSecurityApplication {

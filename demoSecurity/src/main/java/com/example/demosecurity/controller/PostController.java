@@ -13,4 +13,10 @@ public class PostController {
     public String list(){
         return "list posts..";
     }
+
+    @Secured({"ROLE_ADMIN", "ROLE_USER"})
+    @RequestMapping("/post")
+    public String getPost(){
+        return "list posts..";
+    }
 }
