@@ -18,6 +18,12 @@ public class User {
     @Column( unique=true, nullable=false )
     private String email;
 
+
+    /**
+     * Для примера храним пароль в БД, но это плохая практика
+     * В реальной жизни нужно переопределять метод SET, присваивать паролю хеш, и хранить в БД хеш
+     *
+     * **/
     @Column(nullable = false)
     private String password;
 

@@ -1,5 +1,6 @@
 package com.example.demosecurityjpa.config;
 
+import com.example.demosecurityjpa.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -9,15 +10,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
-@EnableGlobalMethodSecurity(securedEnabled = true)
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
+@EnableGlobalMethodSecurity( securedEnabled = true )
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserDetailsService userDetailsService;
+    private UserDetailsService userService;
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-       auth.userDetailsService(userDetailsService);
+    @Autowired
+    public void configureAuth(AuthenticationManagerBuilder auth) throws Exception{
+        auth.userDetailsService(userService);
     }
 
     @Override
@@ -36,5 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
             .logoutSuccessUrl("/login?logout")
             .permitAll();
     }
+
+
 
 }
