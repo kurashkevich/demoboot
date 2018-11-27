@@ -12,11 +12,10 @@
 	<description>Demo project for Spring Boot</description>
 
 	<modules>
-		<module>mrShopper</module>
-		<module>mrShopperREST</module>
 		<module>Thymeleaf</module>
 		<module>h2demo</module>
 		<module>demoSecurity</module>
+		<module>demo-security-jpa</module>
 	</modules>
 
 	<parent>
