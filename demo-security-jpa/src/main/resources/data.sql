@@ -1,7 +1,3 @@
-
-
-//=============DATA FOR IN-MEMORY DB
-
 /*
 INSERT into ROLES VALUES (1, 'USER');
 INSERT into ROLES VALUES (2, 'ADMIN');
