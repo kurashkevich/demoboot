@@ -26,6 +26,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override public List<User> getUsers() {
+        System.out.println(loadUserByUsername("v.kur@gmail.com").getAuthorities() + "!!");
         return userRepository.findAll();
     }
 

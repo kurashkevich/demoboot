@@ -20,7 +20,6 @@ public class PostController {
         return "index";
     }
 
-    @Secured("ROLE_ADMIN")
     @RequestMapping("/getPosts")
     public String list(Model model){
         model.addAttribute("users", userService.getUsers());
