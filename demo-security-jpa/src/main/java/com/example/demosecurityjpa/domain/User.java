@@ -3,13 +3,20 @@ package com.example.demosecurityjpa.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-@Entity
+
 @Table(name = "users")
 @Data
+@Entity
 public class User {
+
+    private User(){
+
+    }
 
     @Id
     @GeneratedValue
@@ -36,10 +43,10 @@ public class User {
         joinColumns = {@JoinColumn(name="user_id")},
         inverseJoinColumns = {@JoinColumn(name="role_id")}
     )
-    private Set<Role> roles = new HashSet<Role>();
+    private List<Role> roles = new ArrayList<Role>();
 
     @Override public String toString() {
         return "User{" + "id=" + id + ", email='" + email + '\'' + ", password='" + password + '\'' + ", fullName='"
-            + fullName + '\'' + ", roles=" + roles + '}';
+            + fullName + '\'' + '}';
     }
 }

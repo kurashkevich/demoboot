@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>
 </head>
 <body>
+
+
+   <article th:each="user : ${users}">
+        <h1 th:text="${user.email}">Some headers</h1>
+        <p th:text="${user.password}">some body</p>
+    </article>
+
 
 </body>
 </html>

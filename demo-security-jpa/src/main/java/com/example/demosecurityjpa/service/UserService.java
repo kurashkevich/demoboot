@@ -5,7 +5,10 @@ import com.example.demosecurityjpa.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 public interface UserService {
 
-    public User findByEmail(String email);
+     User findByEmail(String email);
+     List<User> getUsers();
 }
