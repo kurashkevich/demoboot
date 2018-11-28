@@ -14,12 +14,9 @@ import java.util.Set;
 @Entity
 public class User {
 
-    private User(){
-
-    }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column( unique=true, nullable=false )
@@ -45,14 +42,28 @@ public class User {
     )
     private List<Role> roles = new ArrayList<Role>();
 
-    @Override public String toString() {
-        return "User{" + "id=" + id + ", email='" + email + '\'' + ", password='" + password + '\'' + ", fullName='"
-            + fullName + '\'' + '}';
+    private User(){
+
     }
+
 
     public User(String email, String password, String fullName) {
         this.email = email;
         this.password = password;
         this.fullName = fullName;
     }
+
+    public User(String email, String password, String fullName, List<Role> roles) {
+        this.email = email;
+        this.password = password;
+        this.fullName = fullName;
+        this.roles = roles;
+    }
+
+    @Override public String toString() {
+        return "User{" + "id=" + id + ", email='" + email + '\'' + ", password='" + password + '\'' + ", fullName='"
+            + fullName + '\'' + '}';
+    }
+
+
 }
