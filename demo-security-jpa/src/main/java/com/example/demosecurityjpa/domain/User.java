@@ -3,6 +3,7 @@ package com.example.demosecurityjpa.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.Set;
 @Table(name = "users")
 @Data
 @Entity
-public class User {
+public class User implements Serializable {
 
 
     @Id
@@ -34,13 +35,13 @@ public class User {
     private String fullName;
 
     /** **/
-    @ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER )
+    @ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY )
     @JoinTable(
         name = "users_roles",
         joinColumns = {@JoinColumn(name="user_id")},
         inverseJoinColumns = {@JoinColumn(name="role_id")}
     )
-    private List<Role> roles = new ArrayList<Role>();
+    private Set<Role> roles = new HashSet<>();
 
     private User(){
 
@@ -53,7 +54,7 @@ public class User {
         this.fullName = fullName;
     }
 
-    public User(String email, String password, String fullName, List<Role> roles) {
+    public User(String email, String password, String fullName, Set<Role> roles) {
         this.email = email;
         this.password = password;
         this.fullName = fullName;

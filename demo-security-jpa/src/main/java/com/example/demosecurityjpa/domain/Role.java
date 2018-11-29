@@ -3,6 +3,7 @@ package com.example.demosecurityjpa.domain;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.Set;
 @Table( name = "roles" )
 @Data
 @Entity
-public class Role {
+public class Role implements Serializable {
 
 
 
@@ -23,7 +24,7 @@ public class Role {
     private String role;
 
     @ManyToMany( mappedBy = "roles")
-    private List<User> users = new ArrayList<User>();
+    private Set<User> users = new HashSet<>();
 
     private Role(){
 
@@ -33,11 +34,10 @@ public class Role {
         this.role = role;
     }
 
-    public Role(String role, List<User> users) {
+    public Role(String role, Set<User> users) {
         this.role = role;
         this.users = users;
     }
-
 
     @Override public String toString() {
         return "Role{" + "id=" + id + ", role='" + role + '\'' + '}';

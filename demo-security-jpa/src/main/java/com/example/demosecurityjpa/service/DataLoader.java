@@ -12,9 +12,7 @@ import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class DataLoader {
@@ -51,16 +49,17 @@ public class DataLoader {
         String passForAdmin = delegatingPasswordEncoder().encode("admin");
         String passForUser = delegatingPasswordEncoder().encode("user");
 
-        ArrayList<Role> rolesForAdm = new ArrayList<>();
+        Set<Role> rolesForAdm = new HashSet<>();
         rolesForAdm.add(roleAdmin);
+        rolesForAdm.add(roleUser);
 
-        ArrayList<Role> roles = new ArrayList<>();
+        Set<Role> roles = new HashSet<>();
         roles.add(roleUser);
 
         User userAdmin = new User(  "v.kur@gmail.com", passForAdmin, "vlad kur", rolesForAdm);
         User user = new User( "d.vega@gmail.com", passForUser, "dan vega", roles);
 
-        //userService.addUser(user);
+        userService.addUser(user);
         userService.addUser(userAdmin);
 
 
