@@ -47,28 +47,25 @@ public class DataLoader {
         Role roleUser = new Role("ROLE_USER");
         Role roleAdmin = new Role("ROLE_ADMIN");
 
+
         String passForAdmin = delegatingPasswordEncoder().encode("admin");
         String passForUser = delegatingPasswordEncoder().encode("user");
 
         List<Role> rolesForAdm = new ArrayList<>();
-        rolesForAdm.add(roleAdmin);
         //rolesForAdm.add(roleUser);
+        rolesForAdm.add(roleAdmin);
 
         List<Role> roles = new ArrayList<>();
         roles.add(roleUser);
 
+
         User userAdmin = new User(  "v.kur@gmail.com", passForAdmin, "vlad kur", rolesForAdm);
         User user = new User( "d.vega@gmail.com", passForUser, "dan vega", roles);
 
+
+
         userService.addUser(user);
         userService.addUser(userAdmin);
-
-
-       /* roleService.addRole(roleUser);
-        roleService.addRole(roleAdmin);*/
-
-
-
 
     }
 }

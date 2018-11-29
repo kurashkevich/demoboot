@@ -34,10 +34,7 @@ public class Role implements Serializable {
         this.role = role;
     }
 
-    public Role(String role, List<User> users) {
-        this.role = role;
-        this.users = users;
-    }
+
 
     @Override public String toString() {
         return "Role{" + "id=" + id + ", role='" + role + '\'' + '}';

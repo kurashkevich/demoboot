@@ -17,7 +17,7 @@ public class User implements Serializable {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column( unique=true, nullable=false )
@@ -42,6 +42,12 @@ public class User implements Serializable {
         inverseJoinColumns = {@JoinColumn(name="role_id")}
     )
     private List<Role> roles = new ArrayList<>();
+
+
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     private User(){
 
