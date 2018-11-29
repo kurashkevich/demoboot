@@ -2,12 +2,13 @@ package com.example.demosecurityjpa.service;
 
 import com.example.demosecurityjpa.domain.Role;
 import com.example.demosecurityjpa.domain.User;
+import com.example.demosecurityjpa.service.role.RoleService;
+import com.example.demosecurityjpa.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -43,17 +44,17 @@ public class DataLoader {
 
     @PostConstruct
     private void loadData(){
-        Role roleUser = new Role( "USER");
-        Role roleAdmin = new Role("ADMIN");
+        Role roleUser = new Role("ROLE_USER");
+        Role roleAdmin = new Role("ROLE_ADMIN");
 
         String passForAdmin = delegatingPasswordEncoder().encode("admin");
         String passForUser = delegatingPasswordEncoder().encode("user");
 
-        Set<Role> rolesForAdm = new HashSet<>();
+        List<Role> rolesForAdm = new ArrayList<>();
         rolesForAdm.add(roleAdmin);
-        rolesForAdm.add(roleUser);
+        //rolesForAdm.add(roleUser);
 
-        Set<Role> roles = new HashSet<>();
+        List<Role> roles = new ArrayList<>();
         roles.add(roleUser);
 
         User userAdmin = new User(  "v.kur@gmail.com", passForAdmin, "vlad kur", rolesForAdm);

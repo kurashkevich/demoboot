@@ -1,7 +1,6 @@
 package com.example.demosecurityjpa.controller;
 
-import com.example.demosecurityjpa.service.UserService;
-import com.example.demosecurityjpa.service.UserServiceImpl;
+import com.example.demosecurityjpa.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

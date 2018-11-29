@@ -1,6 +1,6 @@
 package com.example.demosecurityjpa.controller;
 
-import com.example.demosecurityjpa.service.UserService;
+import com.example.demosecurityjpa.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
@@ -20,6 +20,7 @@ public class PostController {
         return "index";
     }
 
+    @Secured("ROLE_ADMIN")
     @RequestMapping("/getPosts")
     public String list(Model model){
         model.addAttribute("users", userService.getUsers());

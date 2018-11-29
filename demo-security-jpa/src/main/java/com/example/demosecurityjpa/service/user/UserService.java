@@ -1,4 +1,4 @@
-package com.example.demosecurityjpa.service;
+package com.example.demosecurityjpa.service.user;
 
 import com.example.demosecurityjpa.domain.User;
 import com.example.demosecurityjpa.repository.UserRepository;

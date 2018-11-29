@@ -35,13 +35,13 @@ public class User implements Serializable {
     private String fullName;
 
     /** **/
-    @ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.LAZY )
+    @ManyToMany( cascade = CascadeType.ALL, fetch = FetchType.EAGER )
     @JoinTable(
         name = "users_roles",
         joinColumns = {@JoinColumn(name="user_id")},
         inverseJoinColumns = {@JoinColumn(name="role_id")}
     )
-    private Set<Role> roles = new HashSet<>();
+    private List<Role> roles = new ArrayList<>();
 
     private User(){
 
@@ -54,12 +54,14 @@ public class User implements Serializable {
         this.fullName = fullName;
     }
 
-    public User(String email, String password, String fullName, Set<Role> roles) {
+    public User(String email, String password, String fullName, List<Role> roles) {
         this.email = email;
         this.password = password;
         this.fullName = fullName;
         this.roles = roles;
     }
+
+
 
     @Override public String toString() {
         return "User{" + "id=" + id + ", email='" + email + '\'' + ", password='" + password + '\'' + ", fullName='"

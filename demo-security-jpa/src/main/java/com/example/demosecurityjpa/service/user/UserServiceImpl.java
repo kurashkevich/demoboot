@@ -1,7 +1,9 @@
-package com.example.demosecurityjpa.service;
+package com.example.demosecurityjpa.service.user;
 
 import com.example.demosecurityjpa.domain.User;
 import com.example.demosecurityjpa.repository.UserRepository;
+import com.example.demosecurityjpa.service.user.UserDetailsImpl;
+import com.example.demosecurityjpa.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.core.userdetails.UserDetails;

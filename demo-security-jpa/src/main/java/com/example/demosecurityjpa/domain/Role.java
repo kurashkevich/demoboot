@@ -24,7 +24,7 @@ public class Role implements Serializable {
     private String role;
 
     @ManyToMany( mappedBy = "roles")
-    private Set<User> users = new HashSet<>();
+    private List<User> users = new ArrayList<>();
 
     private Role(){
 
@@ -34,7 +34,7 @@ public class Role implements Serializable {
         this.role = role;
     }
 
-    public Role(String role, Set<User> users) {
+    public Role(String role, List<User> users) {
         this.role = role;
         this.users = users;
     }

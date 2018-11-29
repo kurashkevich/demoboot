@@ -11,7 +11,10 @@
    <article th:each="user : ${users}">
         <h1 th:text="${user.email}">Some headers</h1>
         <p th:text="${user.password}">some body</p>
+       <p th:text="${user.roles}">some body</p>
     </article>
+
+
 
 
 </body>

@@ -1,4 +1,4 @@
-package com.example.demosecurityjpa.service;
+package com.example.demosecurityjpa.service.role;
 
 import com.example.demosecurityjpa.domain.Role;
 

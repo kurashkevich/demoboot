@@ -1,7 +1,8 @@
-package com.example.demosecurityjpa.service;
+package com.example.demosecurityjpa.service.role;
 
 import com.example.demosecurityjpa.domain.Role;
 import com.example.demosecurityjpa.repository.RoleRepository;
+import com.example.demosecurityjpa.service.role.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

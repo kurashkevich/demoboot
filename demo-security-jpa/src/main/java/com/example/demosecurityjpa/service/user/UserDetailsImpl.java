@@ -1,4 +1,4 @@
-package com.example.demosecurityjpa.service;
+package com.example.demosecurityjpa.service.user;
 
 import com.example.demosecurityjpa.domain.Role;
 import com.example.demosecurityjpa.domain.User;
@@ -23,7 +23,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
-        Set<Role> roles = user.getRoles();
+        List<Role> roles = user.getRoles();
         for( Role role : roles ) {
             authorities.add( new SimpleGrantedAuthority(role.getRole()) );
         }
