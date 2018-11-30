@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -48,6 +49,10 @@ public class PostService {
 
     public Post getBySlugClassic(String slug){
         return postRepository.findPostBySlugIgnoreCase(slug);
+    }
+
+    public Iterable<Post> getPosts(){
+        return postRepository.findAll();
     }
 
 
