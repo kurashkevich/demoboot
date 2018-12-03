@@ -19,6 +19,12 @@ public class Author implements Serializable{
 
     }
 
+    public Author(String firstName, String lastName, String email) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+    }
+
     @Id
     @GeneratedValue
     private Long id;

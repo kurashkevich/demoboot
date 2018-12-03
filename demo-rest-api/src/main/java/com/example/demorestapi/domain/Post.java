@@ -15,6 +15,13 @@ public class Post implements Serializable{
 
     }
 
+    public Post(String header, String body, Date postedOn, Boolean active) {
+        this.header = header;
+        this.body = body;
+        this.postedOn = postedOn;
+        this.active = active;
+    }
+
     @Id
     @GeneratedValue
     private Long id;
