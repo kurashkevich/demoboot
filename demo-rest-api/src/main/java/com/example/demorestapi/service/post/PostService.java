@@ -10,8 +10,8 @@ public interface PostService {
 
     Post read(long id);
 
-    Post update(Long id, Post post);
+    Post updateHeader(long id, Post post);
 
-    void delete(Long id);
+    void delete(long id);
 
 }

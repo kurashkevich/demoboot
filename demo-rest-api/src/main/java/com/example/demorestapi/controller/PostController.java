@@ -30,13 +30,23 @@ public class PostController {
         return postService.create(post);
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Post findPostById(@PathVariable(value="id") long id){
+        return postService.read(id);
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-    public Post updatePost(@PathVariable(value="id") long id, @RequestBody Post post){
-        return postService.update(id, post);
+    public Post updatePost(@PathVariable(value="id") Long id, @RequestBody Post post){
+        return postService.updateHeader(id, post);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void deletePost(@PathVariable long id){
+        postService.delete(id);
     }
 
 
-    // что значит @RequestBody
-    //
+
+
 
 }

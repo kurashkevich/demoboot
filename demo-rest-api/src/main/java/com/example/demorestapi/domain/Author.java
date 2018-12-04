@@ -23,7 +23,7 @@ public class Author implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     private String firstName;
     private String lastName;

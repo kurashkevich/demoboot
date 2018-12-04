@@ -31,15 +31,20 @@ public class PostServiceImpl implements PostService {
         return postRepository.save(post);
     }
 
-    @Override public Post read(long post) {
-        return null;
+    @Override
+    public Post read(long id) {
+        return postRepository.findById(id);
     }
 
-    @Override public Post update(Long id, Post post) {
-        return null;
+    @Override public Post updateHeader(long id, Post update) {
+        Post post = postRepository.findById(id);
+        if( update.getHeader() != null ) {
+            post.setHeader(update.getHeader());
+        }
+        return postRepository.save(post);
     }
 
-    @Override public void delete(Long id) {
-
+    @Override public void delete(long id) {
+        postRepository.deleteById(id);
     }
 }
