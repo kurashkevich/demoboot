@@ -4,10 +4,7 @@ import com.example.demorestapi.domain.Author;
 import com.example.demorestapi.domain.Post;
 import com.example.demorestapi.service.post.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -32,6 +29,12 @@ public class PostController {
         System.out.println(post + " :!");
         return postService.create(post);
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public Post updatePost(@PathVariable(value="id") long id, @RequestBody Post post){
+        return postService.update(id, post);
+    }
+
 
     // что значит @RequestBody
     //
