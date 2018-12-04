@@ -11,7 +11,7 @@ import java.util.Date;
 @Data
 public class Post implements Serializable{
 
-    private Post(){
+    public Post(){
 
     }
 
@@ -22,8 +22,13 @@ public class Post implements Serializable{
         this.active = active;
     }
 
+    public Post(String header, String body) {
+        this.header = header;
+        this.body = body;
+    }
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String header;

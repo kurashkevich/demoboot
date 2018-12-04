@@ -27,8 +27,9 @@ public class PostController {
         return postService.list();
     }
 
-    @RequestMapping(value = "/posts/add", method = RequestMethod.POST)
-    public Post createPost(@RequestBody Post post){
+    @RequestMapping( value = "/", method = RequestMethod.POST )
+    public Post create(@RequestBody Post post){
+        System.out.println(post + " :!");
         return postService.create(post);
     }
 

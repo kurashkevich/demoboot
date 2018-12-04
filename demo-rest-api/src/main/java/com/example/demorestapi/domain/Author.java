@@ -3,11 +3,7 @@ package com.example.demorestapi.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -15,7 +11,7 @@ import java.util.List;
 @Data
 public class Author implements Serializable{
 
-    private Author(){
+    public Author(){
 
     }
 
@@ -26,7 +22,7 @@ public class Author implements Serializable{
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
