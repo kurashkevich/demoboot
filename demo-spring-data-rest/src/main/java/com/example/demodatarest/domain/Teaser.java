@@ -1,8 +1,8 @@
 package com.example.demodatarest.domain;
 
-import org.springframework.data.rest.core.config.Projection;
+//import org.springframework.data.rest.core.config.Projection;
 
-@Projection( name="teaser", types = {Post.class} )
+//@Projection( name="teaser", types = {Post.class} )
 public interface Teaser {
 
     String getTitle();
